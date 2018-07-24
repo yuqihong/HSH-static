@@ -1,0 +1,33 @@
+/*隐藏的东西*/
+.font_1{padding-right:25px;font-size:10pt}
+.font_2{padding-right: 30px;font-size:10pt;}
+.div_case1{text-align:center;color: #0078d7;clear: both;margin-top: 15px;}
+.case_pd{font-size:10pt;color: #797979;}
+.case_ct{text-indent: 2em;font-size: 10pt;word-break:break-word;line-height:45px;}
+.td_case1{width:25px;text-indent: 0;text-align: center;}
+.div_case3{text-align:left;overflow: hidden;width: 90%;padding: 15px;border: 1px solid #ccc;
+			margin: 15px auto;    border-radius: 10px;
+}
+.h2_case1{color: red;font-size: 18px;font-weight: bold;padding-bottom: 5px;border-bottom: 1px solid #ccc;}
+.div_case4{float: left; width:48%;margin-top: 15px;}
+.div_case2{float: right; width: 48%;margin-top: 15px;}
+.p_case1{font-size:10pt;color: #797979;word-break:break-word;}
+.p_case1_1{text-indent: 2em;font-size: 10pt;line-height:45px;}
+.div_case5{text-align:center;}
+
+.case_qb{width: 85%;margin: 20px auto;overflow: hidden;color:black;}
+.tr_yc{background: #fafafa !important;display: none;border-top: 1px solid #cbcbcb;border-bottom: 1px solid #cbcbcb;}
+/*隐藏的东西-end*/
+
+
+/*修改弹窗*/
+.xg_yc{position: fixed;width: 100%;height: 100%;top:0;left: 0;background: rgba(0,0,0,.7);
+	filter: progid:DXImageTransform.Microsoft.Gradient(startColorstr=#88000000,endColorstr=#88000000);
+	display: none;
+}
+.xg_yc .xg{background: #fff;width: 1000px;height:322px;overflow: hidden;border-radius: 10px;position: absolute;padding:20px;
+top:50%;left: 50%;margin-left: -500px;margin-top: -242px;}
+.close{position: absolute;top:0;right: 0;padding:5px 10px;-moz-border-radius-topright: 10px;background:#333;color: #fff;
+cursor: pointer;cursor: hand;}
+.close:hover{color: red;}
+/*修改弹窗-end*/

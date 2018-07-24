@@ -1,0 +1,45 @@
+/* CSS Document */
+body { font-family:  Calibri; }
+
+/* Table Setting 
+=========================================================================================== */
+table{  
+border-collapse:collapse;  
+border-spacing:0;  
+}  
+ 
+th,td{  
+padding:0;  
+}  
+
+/* Link Setting 
+=========================================================================================== */
+A.title:link{text-decoration:none;color:#FFFFFF}
+A.title:visited {color:#FFFFFF}
+A.title:hover {color:#FF0000;text-decoration:underline}
+
+A.item:link {color:#669;text-decoration:none}
+A.item:visited {color:#336}
+A.item:hover { color:#FF0000;text-decoration:underline}
+A.item:active {color:#F00}
+
+/* Text Style Setting 
+=========================================================================================== */
+
+.subtitle{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	font-size: 10pt;
+}
+
+.td-content-text {
+padding-left:5px
+}
+
+.text_underline {text-decoration:underline}
+/* Œª÷√ */
+.place{height:30px; }
+.place span{line-height:30px; font-weight:bold;float:left; padding-left:15%;margin-top: 5px;}
+.placeul li{float:left; line-height:40px; padding-left:7px; padding-right:12px; background:url(../images/rlist.gif) no-repeat right;}
+.placeul li:last-child{background:none;}
+

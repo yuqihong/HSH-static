@@ -1,0 +1,59 @@
+.selectPointOfInterest {
+	width: 92pt;
+	font-size: 10pt;
+	height: 25pt;
+	padding-right: 20pt;
+	text-indent: 4pt;
+	text-align: left;
+	vertical-align: middle;
+	border: 1px solid #0f8b8d;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	border-radius: 6px;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	font-family: SimHei;
+	cursor: pointer;
+	outline: none;
+}
+
+
+/*LABEL FOR SELECT*/
+
+label#lblSelect {
+	position: relative;
+	/*display: inline-block;*/
+	display: inline-flex;
+	width: 92pt;
+	
+}
+
+label#lblSelect option {
+	font-size: 15px;
+}
+
+
+/*DOWNWARD ARROW (25bc)*/
+
+label#lblSelect::after {
+	content: "\25bc";
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	width: 20pt;
+	line-height: 27pt;
+	vertical-align: middle;
+	text-align: center;
+	background: #0f8b8d;
+	color: #fff;
+	-moz-border-radius: 0 6px 6px 0;
+	-webkit-border-radius: 0 6px 6px 0;
+	border-radius: 0 6px 6px 0;
+	pointer-events: none;
+}
+.color_red{
+	padding-left:7px;
+	color:red;
+}

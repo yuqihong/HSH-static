@@ -1,0 +1,136 @@
+/*!
+ *   AdminLTE v2.4.2
+ *   Author: Almsaeed Studio
+ *	 Website: Almsaeed Studio <https://adminlte.io>
+ *   License: Open source - MIT
+ *           Please visit http://opensource.org/licenses/MIT for more information
+ */
+ .wrapper {
+     height: 100%;
+     position: relative;
+     overflow-x: hidden;
+     overflow-y: auto
+ }
+.content-wrapper {
+    min-height: 100%;
+    background-color: #ecf0f5;
+    z-index: 800
+}
+.content_adminLte {
+    min-height: 250px;
+    padding: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px
+}
+.box.box-solid.box-warning {
+    border: 1px solid #f39c12
+}
+.box.box-solid {
+    border-top: 0
+}
+.box.box-warning {
+    border-top-color: #f39c12
+}
+.box {
+    position: relative;
+    border-radius: 3px;
+    background: #ffffff;
+    border-top: 3px solid #d2d6de;
+    margin-bottom: 20px;
+    width: 100%;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1)
+}
+body {
+    font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    overflow-x: hidden;
+    overflow-y: auto
+}
+@media (max-width:767px) {
+    .content-wrapper,
+    .main-footer {
+        margin-left: 0
+    }
+}
+.content-wrapper,
+.main-footer {
+    -webkit-transition: -webkit-transform .3s ease-in-out, margin .3s ease-in-out;
+    -moz-transition: -moz-transform .3s ease-in-out, margin .3s ease-in-out;
+    -o-transition: -o-transform .3s ease-in-out, margin .3s ease-in-out;
+    transition: transform .3s ease-in-out, margin .3s ease-in-out;
+    z-index: 820
+}
+.box.box-solid.box-warning>.box-header {
+    color: #fff;
+    background: #f39c12;
+    background-color: #f39c12
+}
+.box.box-solid.box-warning>.box-header2 {
+    color: #fff;
+    background: #D65EA0;
+    background-color: #D65EA0
+}
+.box.box-solid.box-warning>.box-header3 {
+    color: #fff;
+    background: #5D53B1;
+    background-color: #5D53B1 	
+}
+
+.box-header.with-border {
+    border-bottom: 1px solid #f4f4f4
+}
+.box-header {
+    color: #444;
+    display: block;
+    padding: 10px;
+    position: relative
+}
+.box.box-solid>.box-header>.box-tools .btn {
+    border: 0;
+    box-shadow: none
+}
+.box.box-solid.box-warning>.box-header a,
+.box.box-solid.box-warning>.box-header .btn {
+    color: #fff
+}
+
+.box-header>.fa,
+.box-header>.glyphicon,
+.box-header>.ion,
+.box-header .box-title {
+    display: inline-block;
+    font-size: 18px;
+    margin: 0;
+    line-height: 1
+}
+h3,
+.h3{
+	font-size: 24px;
+    font-family: 'Source Sans Pro', sans-serif
+}
+.box-header>.box-tools {
+    position: absolute;
+    right: 10px;
+    top: 5px
+}
+.box-body {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+    padding: 10px
+}
+.btn {
+    border-radius: 3px;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border: 1px solid transparent
+}
+.btn-box-tool {
+    padding: 5px;
+    font-size: 12px;
+    background: transparent;
+    color: #97a0b3
+}
