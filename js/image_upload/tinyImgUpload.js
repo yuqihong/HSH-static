@@ -126,10 +126,8 @@ function tinyImgUpload(ele, options) {
         for(var i=0, f; f=ele.files[i]; i++){
             formData.append('files', f);
         }
-
-        console.log('1',ele.files);
-        console.log('2',formData);
-
+        var product_id = $('#update_id').val();
+        formData.append('id', product_id);
         xhr.onreadystatechange = function (e) {
             if(xhr.readyState == 4){
                 if(xhr.status == 200){

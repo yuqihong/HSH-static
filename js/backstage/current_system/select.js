@@ -266,15 +266,24 @@ var CurrentSystem={
 		var func = "getCurrentSystem";
 		//处理数据
 		if(json["count"]>0){
-			html+="<thead><tr><th>编号</th><th>产品名称</th><th>产品完整名称</th><th>所属类别</th><th>创建时间</th><th>操作</th></tr></thead>";
+			html+="<thead><tr><th>编号</th><th>产品名称</th><th>产品完整名称</th><th>所属类别</th><th>图片</th><th>创建时间</th><th>操作</th></tr></thead>";
 			for(var i = 0; i<json["list"].length; i++){
 				top_px = "35px";
 				var data = json["list"][i];
 				html+="<tbody><tr><td>"+data["product_id"]+"</td>"
 					+"<td>"+data["product_name"]+"</td>"
 					+"<td>"+data["product_long_name"]+"</td>"
-					+"<td>"+data["category_name"]+"</td>"
-					+"<td>"+data["create_time"]+"</td>";
+					+"<td>"+data["category_name"]+"</td>";
+				
+				html+="<td>";
+				
+				url_list = data["product_view_url"].split(",");
+				for(var j = 0; j<url_list.length-1; j++){
+					html+="<img data-action=\"zoom\" style=\"width:40px; height:30px; text-align:center; margin-top:10px;\" src=\"" + url_list[j]+"\" /> &nbsp;";
+				}
+				html+="</td>";
+				
+				html+="<td>"+data["create_time"]+"</td>";
 				html+="<td>";
 				html+="<a href=\"#\" style=\"color:green;\" onclick=\"CurrentSystem.openUpdateCurrentSystem"+ "('" +data["product_id"]+ "')" +"\">修 改</a>";
 				html+="&nbsp;|&nbsp;"

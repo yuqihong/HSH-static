@@ -24,7 +24,7 @@ var CurrentSystem={
 					html+="<td colspan=\"3\" align=\"center\">"
 					
 					for(var i=0; i<images_list.length-1; i++){
-						html+="<img src=\""+images_list[i]+"\" width=\"203\" height=\"221\" align=\"middle\" />";
+						html+="<img data-action=\"zoom\" src=\""+images_list[i]+"\" width=\"203\" height=\"221\" align=\"middle\" />";
 					}
 					
 					html+="</td>";

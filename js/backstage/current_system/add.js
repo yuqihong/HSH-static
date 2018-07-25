@@ -69,9 +69,7 @@ var AddCurrentSystem={
 			var ajax={
 				url : '/hsh_backstage/saveCurrentSystem/',
 				type: 'POST',
-				/*secureuri: false, //一般设置为false
-	            fileElementId: 'file', // 上传文件的id、name属性名
-*/				data:{
+				data:{
 					"data" : JSON.stringify({
 						'product_name' : product_name,
 						'product_long_name' : product_long_name,
@@ -125,37 +123,6 @@ var AddCurrentSystem={
 		    				window.location.reload();//页面刷新
 		    			},1000);
 					}
-					
-					/*if(json.addProductRow > 0){
-						
-						var file_obj = document.getElementById('file').files[0];
-						var imageSize = file_obj.size;
-						if(imageSize > 3*1024*1024){
-							layer.msg('图片不能大于3M!');
-							return false;
-						}*/
-					    /*if(file_obj){
-					    	var fd = new FormData();
-					    	fd.append('file',file_obj);
-					    	fd.append('product_id', json.addProductRow);
-					    	xhr = new XMLHttpRequest();
-					    	xhr.open('POST', '/hsh_backstage/saveCurrentSystemImage/', true)
-					    	xhr.send(fd);
-					    	xhr.onreadystatechange = function (json) {
-					    		//后端接收完毕
-					    		if(json.respJson == "SUCCESS"){
-					    			layer.msg('保存成功!');
-					    			setTimeout(function(){  //使用  setTimeout（）方法设定定时2000毫秒
-					    				window.location.reload();//页面刷新
-					    			},1000);
-					    		}else{
-					    			layer.msg('保存失败!');
-					    		}
-					    	};
-					    }
-					}else{
-						layer.msg('保存失败!');
-					}*/
 				}
 			}
 			_ajax(ajax);
