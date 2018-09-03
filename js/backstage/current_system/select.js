@@ -90,7 +90,7 @@ var CurrentSystem={
 	
 	delProduct : function(product_id){
 		//询问框
-		layer.confirm('是否删除改产品？', {
+		layer.confirm('是否删除？', {
 		  btn: ['确定','取消']
 		}, function(){
 			var ajax={
