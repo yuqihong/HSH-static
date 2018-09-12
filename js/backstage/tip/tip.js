@@ -1,32 +1,28 @@
-var Alert={
+var Tip={
 	
 		submit : function(){
-			var alert_number = $('#alert_number').val();//产品名称
-			var alert_detail = $('#alert_detail').val();//完整产品名称
+			var tip_detail = $('#tip_detail').val();//完整产品名称
 			var their_product = $('#their_product').val();//获取产品名称
-			
-			
-			if(Alert.checkText(alert_number, alert_detail)){
-				Alert.saveAlert(alert_number, alert_detail, their_product);
+			if(Tip.checkText(tip_detail)){
+				Tip.saveTip(tip_detail, their_product);
 			}
 		},
 		
-		checkText : function(alert_number, alert_detail){
-			if(checkStr(alert_number, '请输入Alert Number') && checkStr(alert_detail, '请输入Alert Detail')){
+		checkText : function(Tip_detail){
+			if(checkStr(Tip_detail, '请输入Tip Detail')){
 				return true;
 			}
 			return false;
 		},
 		
-		saveAlert : function(alert_number, alert_detail, their_product){
+		saveTip : function(tip_detail, their_product){
 			
 			var ajax={
-				url : '/hsh_backstage/saveAlert/',
+				url : '/hsh_backstage/saveTip/',
 				type: 'POST',
 				data:{
 					"data" : JSON.stringify({
-						'alert_number' : alert_number,
-						'alert_detail' : alert_detail,
+						'tip_detail' : tip_detail,
 						'their_product' : their_product
 					})
 				},
@@ -43,43 +39,42 @@ var Alert={
 			}
 			_ajax(ajax);
 		},
-		
-		
-		getAlert : function(page){
+		//查询模块		
+		getTip : function(page){
 			var search_text = $('#search_text').val().trim();
 			var ajax={
-				url : '/hsh_backstage/getAlertList/',
+				url : '/hsh_backstage/getTipList/',
 				data : {
 					'search_text' : "%"+search_text+"%",
 					'page' : page
 				},
 				success : function(json){
-					Alert.show_table(json, page);
+					Tip.show_table(json, page);
 				}
 			}
 			_ajax(ajax);
 		},
-		
-		getAlertList : function(page){
+		//分页，第一步
+		getTipList : function(page){
 			var ajax={
-				url : '/hsh_backstage/getAlertList/',
+				url : '/hsh_backstage/getTipList/',
 				data : {
 					'page' : page
 				},
 				success : function(json){
-					Alert.show_table(json, page);
+					Tip.show_table(json, page);
 				}
 			}
 			_ajax(ajax);
 		},
 		
 		openAdd : function(){
-			Alert.getTheirProductList();
-			open_add();
+			Tip.getTheirProductList();
+			open_add();//显示div层
 		},
 		getTheirProductList : function(){
 			var ajax={
-					url : '/hsh_backstage/getTheirProductList/',
+					url : '/hsh_backstage/getTheirProductTip/',
 					success : function(json){
 						html = "<option value=\"\">--不选择--</option>";
 						for(var i=0; i < json.length ; i++){
@@ -91,9 +86,9 @@ var Alert={
 				}
 				_ajax(ajax);
 		},
-		getTheirProductList2 : function(alert_id){
+		getTheirProductList2 : function(tip_id){
 			var ajax={
-					url : '/hsh_backstage/getTheirProductList/',
+					url : '/hsh_backstage/getTheirProductTip/',
 					success : function(json){
 						html = "<option value=\"\">--不选择--</option>";
 						for(var i=0; i < json.length ; i++){
@@ -101,45 +96,43 @@ var Alert={
 						}
 						$('#their_product').html(html);
 						$('#update_their_product').html(html);
-						Alert.getUpdateAlert(alert_id);
+						Tip.getUpdateTip(tip_id);
 					}
 				}
 				_ajax(ajax);
 		},
-		getUpdateAlert : function(alert_id){
+		getUpdateTip : function(tip_id){
 			var ajax={
-					url : '/hsh_backstage/getUpdateAlert/',
+					url : '/hsh_backstage/getUpdateTip/',
 					data : {
-						'alert_id' : alert_id
+						'tip_id' : tip_id
 					},
 					success : function(json){
-						$('#update_alert_number').val(json[0].alert_number);
-						$('#update_alert_detail').val(json[0].alert_detail);
-						$('#update_their_product').val(json[0].product_id);
-						$('#update_alert_id').val(json[0].id);
+						console.info(json);
+						$('#update_tip_id').val(json[0].id);
+						$('#update_tip_detail').val(json[0].tip_detail);
+						$('#update_their_product').val(json[0].product_id);						
 					}
 				}
 				_ajax(ajax);
 		},
-		UpdateAlert : function(alert_id){
-			Alert.getTheirProductList2(alert_id);
+		UpdateTip : function(tip_id){
+			Tip.getTheirProductList2(tip_id);
 			open_xg();
 		},
 		
 		update : function(){
-			var alert_number = $('#update_alert_number').val();//产品名称
-			var alert_detail = $('#update_alert_detail').val();//完整产品名称
+			var tip_detail = $('#update_tip_detail').val();//完整产品名称
 			var their_product = $('#update_their_product').val();//获取产品名称
-			var alert_id = $('#update_alert_id').val();
+			var update_tip_id = $('#update_tip_id').val();
 			
-			if(Alert.checkText(alert_number, alert_detail)){
+			if(Tip.checkText(tip_detail)){
 				var ajax={
-						url : '/hsh_backstage/updateAlert/',
+						url : '/hsh_backstage/updateTip/',
 						data : {
 							"data" : JSON.stringify({
-								'alert_id' : alert_id,
-								'alert_number' : alert_number,
-								'alert_detail' : alert_detail,
+								'tip_id' : update_tip_id,
+								'tip_detail' : tip_detail,
 								'product_id' : their_product
 							})
 						},
@@ -157,15 +150,15 @@ var Alert={
 					_ajax(ajax);
 			}
 		},
-		delAlert : function(alert_id){
+		delTip : function(tip_id){
 			//询问框
 			layer.confirm('是否删除？', {
 			  btn: ['确定','取消']
 			}, function(){
 				var ajax={
-						url : '/hsh_backstage/delAletrt/',
+						url : '/hsh_backstage/delTip/',
 						data : {
-							'alert_id' : alert_id
+							'tip_id' : tip_id
 						},
 						success : function(json){
 							if(json.result=='SUCCESS'){
@@ -183,33 +176,37 @@ var Alert={
 				
 			});
 		},
+		//第二步，实现页面布局
 		show_table : function(json,page){
 			var html = "";
 			var page_html="";
-			var func = "getAlert";
+			var func = "getTip";
 			//处理数据
 			if(json["count"]>0){
-				html+="<thead><tr><th>编号</th><th>Alert Number</th><th>Alert Detail</th><th>产品</th><th>操作</th></tr></thead>";
+				html+="<thead><tr><th>编号</th><th>Tip detail</th><th>产品</th><th>操作</th></tr></thead>";
 				for(var i = 0; i<json["list"].length; i++){
 					top_px = "35px";
 					var data = json["list"][i];
-					html+="<tbody><tr><td>"+data["alert_id"]+"</td>"
-						+"<td>"+data["alert_number"]+"</td>"
-						+"<td title=\""+data["alert_detail"]+"\"><div class=\"your_class\">"+data["alert_detail"]+"</div></td>"
+					console.info(data);
+					html+="<tbody><tr><td>"+data["tip_id"]+"</td>"
+						+"<td title=\""+data["tip_detail"]
+					    +"\"><div class=\"your_class\">"
+					    +data["tip_detail"]+"</div></td>"
 					html+="<td><a href=\"#\" style=\"color:blue;\">查看</a>";
 						
 					html+="<div class=\"table_yc\" style=\"width: 300px;overflow:scroll; top:" + top_px + ";text-align:left;word-break: break-all;word-wrap:break-word;\"><b>所属产品</b></br>";
-//					if(insert_time_list.length>0){
-//						for(var z = 0; z<insert_time_list.length; z++){
-//							html+=insert_time_list[z]+"</br>";
-//						}
-//					}
+					if(data["product_name"]){
+						product_name_list = data["product_name"].split(",");
+						for(var z=0; z<product_name_list.length; z++){
+							html+=product_name_list[z]+"</br>";
+						}
+					}
 					html+="</div></td>";
 					
 					html+="<td>"
-					html+="<a href=\"#\" style=\"color:green;\" onclick=\"Alert.UpdateAlert"+ "('" +data["alert_id"]+ "')" +"\">修 改</a>";
+					html+="<a href=\"#\" style=\"color:green;\" onclick=\"Tip.UpdateTip"+ "('" +data["tip_id"]+ "')" +"\">修 改</a>";
 					html+="&nbsp;|&nbsp;"
-					html+="<a href=\"#\" style=\"color:red;\" onclick=\"Alert.delAlert"+ "('" +data["alert_id"]+ "')" +"\">删 除</a>";
+					html+="<a href=\"#\" style=\"color:red;\" onclick=\"Tip.delTip"+ "('" +data["tip_id"]+ "')" +"\">删 除</a>";
 					html+="</td>";
 					html+="</tr></tbody>"
 				}

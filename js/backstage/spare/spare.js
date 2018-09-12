@@ -226,7 +226,7 @@ var Spare={
 					var data = json["list"][i];
 					html+="<tbody><tr><td>"+data["id"]+"</td>"
 						+"<td>"+data["spare_pn"]+"</td>"
-						+"<td title=\""+data["spare_description"]+"\"><div class=\"your_class\">"+data["spare_description"]+"</div></td>"
+						+"<td style=\"text-align: center;\" title=\""+data["spare_description"]+"\"><div class=\"your_class\">"+data["spare_description"]+"</div></td>"
 						+"<td>"+data["spare_product_pn"]+"</td>"
 						+"<td>"+data["spare_substitue_pn"]+"</td>"
 						+"<td>"+data["type_name"]+"</td>";
